@@ -33,6 +33,7 @@ class User(Base):
 	country 		= Column(Unicode(250, collation='utf8_bin'))
 	address 		= Column(Unicode(250, collation='utf8_bin'))
 	old 			= Column(Unicode(250, collation='utf8_bin'))
+	current_time 	= Column(TIMESTAMP, server_default= func.now(), onupdate=func.current_timestamp())
 
 	@property
 	def serialize(self):
